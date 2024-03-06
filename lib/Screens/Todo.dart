@@ -53,9 +53,9 @@ class _TodoListState extends State<TodoList> {
               itemBuilder: (context, index) {
                 final todo = todos?[index];
                 Color taskColor = Colors.green;
-                var taskTagType = todo?.addTag;
+                var taskTagType = todo!.addTag;
                 if (taskTagType == 'Task1') {
-                  taskColor = Colors.green;
+                  taskColor = Colors.blue;
                 } else if (taskTagType == 'Task2') {
                   taskColor = Colors.pinkAccent;
                 }
@@ -65,7 +65,6 @@ class _TodoListState extends State<TodoList> {
                     elevation: 10,
                     shadowColor: Colors.white,
                     child: ListTile(
-
                       title: Text(todo!.task,
                         style: const TextStyle(
                         fontSize: 17, fontWeight: FontWeight.bold,
@@ -78,13 +77,15 @@ class _TodoListState extends State<TodoList> {
                             color: Colors.black54
                         ),
                       ),
+
+                      // leading: Text(todo.addTag),
                       leading:  Container(
                         width: 20,
                         height: 20,
                         padding: const EdgeInsets.symmetric(vertical: 4.0),
                         alignment: Alignment.center,
                         child:  CircleAvatar(
-                          backgroundColor: taskColor,
+                         backgroundColor: taskColor,
                         ),
                       ),
                       iconColor: Colors.black,

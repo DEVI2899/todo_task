@@ -147,7 +147,7 @@ class _AddAlertDialogState extends State<AddAlertDialog> {
                 id: DateTime.now().toString(),
                 task: taskNameController.text,
                 description: taskDescController.text,
-                addTag: taskTags.isNotEmpty.toString()
+                addTag: selectedValue
             );
             BlocProvider.of<TodoBloc>(context).add(AddTodo(todo));
             ClearText();

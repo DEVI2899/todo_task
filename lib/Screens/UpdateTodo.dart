@@ -31,6 +31,7 @@ class _UpdateTodosState extends State<UpdateTodos> {
      setState(() {
        _taskNameController =TextEditingController(text: widget.todoModel.task);
        _taskDescController =TextEditingController(text: widget.todoModel.description);
+
      });
 
 
@@ -114,8 +115,8 @@ class _UpdateTodosState extends State<UpdateTodos> {
                         maxHeight: 200,
                       ),
                       isExpanded: true,
-                      hint: const Text('update a task tag',
-                        style: TextStyle(fontSize: 14),
+                      hint:  Text(widget.todoModel.addTag,
+                        style: const TextStyle(fontSize: 14),
                       ),
 
                       items: taskTags.map((item) => DropdownMenuItem<String>(
@@ -164,7 +165,7 @@ class _UpdateTodosState extends State<UpdateTodos> {
                 id: widget.todoModel.id,
                 task: _taskNameController!.text,
                 description: _taskDescController!.text,
-                addTag: widget.todoModel.addTag
+                addTag: selectedValue
 
             );
             // var taskTag = '';
